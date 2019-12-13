@@ -1,0 +1,21 @@
+version: "3.3"
+services:
+    rabbitmq01:
+        build:
+            context: .
+            dockerfile: rabbitmq-build
+        image: rabbitmq:3.8.2-custom
+        ports:
+            - "443:15671"
+        networks:
+            - demonetwork
+        volumes:
+            - db-data:/var/lib/rabbitmq
+        env_file:
+            - ./rabbitmq_env
+
+networks:
+    demonetwork:
+
+volumes:
+    db-data:

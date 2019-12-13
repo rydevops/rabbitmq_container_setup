@@ -1,0 +1,6 @@
+FROM rabbitmq:3.8.2-management
+
+COPY rabbitmq.key /rabbitmq.key
+COPY rabbitmq.pem /rabbitmq.pem
+
+RUN chown rabbitmq:rabbitmq /rabbitmq.key /rabbitmq.pem
