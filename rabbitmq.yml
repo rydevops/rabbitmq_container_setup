@@ -4,18 +4,18 @@ services:
         build:
             context: .
             dockerfile: rabbitmq-build
-        image: rabbitmq:3.8.2-custom
+        image: rabbitmq:3.8.3-custom
         ports:
-            - "443:15671"
+            - "15671:15671"
         networks:
-            - demonetwork
+            - tutlab
         volumes:
-            - db-data:/var/lib/rabbitmq
+            - rabbitmq-data:/var/lib/rabbitmq
         env_file:
             - ./rabbitmq_env
 
 networks:
-    demonetwork:
+    tutlab:
 
 volumes:
-    db-data:
+    rabbitmq-data:
